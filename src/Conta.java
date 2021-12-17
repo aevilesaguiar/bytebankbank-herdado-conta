@@ -1,9 +1,9 @@
 
 
 
-public class Conta {
+public abstract class Conta {
 	
-	private	double saldo;
+	protected	double saldo;//eu tilizei protected para que saldo ficasse visivel para os filhos que no caso é conta Poupança e Cont corrente
 	private int agencia;
 	private int numero;
 	private Cliente titular;
@@ -26,10 +26,8 @@ public class Conta {
 		System.out.println("Estou criando uma conta"+this.numero);
 	}
 	
-	void deposita (double valor) {
-		
-		this.saldo+=valor;
-	}
+	//método abstrato são apenas o corpo, eles precisam ser implmentados pelo o filho
+	public abstract void deposita (double valor);
 
 	public boolean saca(double valor) {
 		if(this.saldo>=valor) {
