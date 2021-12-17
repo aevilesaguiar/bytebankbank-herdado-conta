@@ -17,7 +17,9 @@ public class Conta {
 		this.numero=numero;
 		System.out.println("Estou criando uma conta"+this.numero);
 	}
-
+	
+	
+	
 	public Conta( int numero) {
 	
 		this.numero=numero;
@@ -40,13 +42,12 @@ public class Conta {
 	}
 	
 	public boolean transfere(double valor, Conta destino ) {
-		if(this.saldo>=valor) {
-			this.saldo-=valor;
-			destino.deposita(valor);
-			return true;
-		}else {
-			return false;
-		}
+		if(this.saca(valor)) {
+	        destino.deposita(valor);
+	        return true;
+	    } else {
+	        return false;
+	    }
 		
 		
 	
