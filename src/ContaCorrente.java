@@ -1,5 +1,5 @@
 
-public class ContaCorrente extends Conta {
+public class ContaCorrente extends Conta implements Tributavel {
 	
 	
 	//construtor
@@ -22,6 +22,14 @@ public class ContaCorrente extends Conta {
 	public void deposita(double valor) {
 		super.saldo+=valor;
 		
+	}
+
+
+
+	@Override
+	public double getValotImposto() {
+		
+		return super.saldo*0.01;
 	}
 
 }
