@@ -29,25 +29,16 @@ public abstract class Conta {
 	//método abstrato são apenas o corpo, eles precisam ser implmentados pelo o filho
 	public abstract void deposita (double valor);
 
-	public boolean saca(double valor) {
-		if(this.saldo>=valor) {
-			this.saldo-=valor;
-			return true;
-		}else {
-			return false;
-		}
-		
+	public void saca(double valor) throws SaldoInsufienteException {
+	    if(this.saldo < valor) {
+	        throw new SaldoInsufienteException("");
+	    }
+	    this.saldo -= valor;
 	}
 	
-	public boolean transfere(double valor, Conta destino ) {
-		if(this.saca(valor)) {
-	        destino.deposita(valor);
-	        return true;
-	    } else {
-	        return false;
-	    }
-		
-		
+	public void transfere(double valor, Conta destino ) throws SaldoInsufienteException {
+		this.saca(valor);
+        destino.deposita(valor);
 	
 	}
 
