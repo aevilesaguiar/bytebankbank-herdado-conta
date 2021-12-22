@@ -1,3 +1,4 @@
+package br.com.bytebank.banco.modelo;
 
 public class SeguroDeVida implements Tributavel { //implements já assinou o contrato
 

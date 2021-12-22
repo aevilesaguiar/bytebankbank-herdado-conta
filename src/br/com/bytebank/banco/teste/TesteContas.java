@@ -1,9 +1,16 @@
+package br.com.bytebank.banco.teste;
+import br.com.bytebank.banco.especial.ContaEspecial;
+import br.com.bytebank.banco.modelo.ContaCorrente;
+import br.com.bytebank.banco.modelo.ContaPoupanca;
+import br.com.bytebank.banco.modelo.SaldoInsufienteException;
+
 
 public class TesteContas {
 
 	public static void main(String[] args)throws SaldoInsufienteException {
 		 
-		
+		ContaEspecial ce=new ContaEspecial(123, 5555);
+
 		
 		ContaCorrente cc = new ContaCorrente(111, 111);
         cc.deposita(100.0);

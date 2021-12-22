@@ -1,13 +1,25 @@
+package br.com.bytebank.banco.modelo;
 
-
+/**
+ * 
+ * @author AEVILES
+ *
+ */
 
 public abstract class Conta {
 	
-	protected	double saldo;//eu tilizei protected para que saldo ficasse visivel para os filhos que no caso é conta Poupança e Cont corrente
+	protected double saldo;//eu tilizei protected para que saldo ficasse visivel para os filhos que no caso é conta Poupança e Cont corrente
 	private int agencia;
 	private int numero;
 	private Cliente titular;
 	private static int total=0;
+	
+	/**
+	 * cONSTRUTOR PARA INICIALIZAR O OBJETO CONTA A PARTIR DA AGENCIA E NUMERO
+	 * @param agencia
+	 * @param numero
+	 */
+	
 	
 	//contrutor 
 	public Conta(int agencia, int numero) {
@@ -28,6 +40,13 @@ public abstract class Conta {
 	
 	//método abstrato são apenas o corpo, eles precisam ser implmentados pelo o filho
 	public abstract void deposita (double valor);
+	
+	/**
+	 * vALOR PRECISA SER MAIOR DO QUE O SALDO
+	 * 
+	 * @param valor
+	 * @throws SaldoInsufienteException
+	 */
 
 	public void saca(double valor) throws SaldoInsufienteException {
 	    if(this.saldo < valor) {
